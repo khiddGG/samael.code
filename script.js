@@ -65,10 +65,9 @@ function addEventListeners() {
     }
     
     // Social links
-    const socialLinks = document.querySelectorAll('.social-link');
+     const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             // Add click animation
             this.style.transform = 'scale(0.9)';
             setTimeout(() => {
@@ -406,3 +405,4 @@ const optimizedScrollHandler = debounce(function() {
 }, 16);
 
 window.addEventListener('scroll', optimizedScrollHandler);
+
