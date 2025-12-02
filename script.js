@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate skill bars on scroll
     animateSkillBars();
+
+    // Initialize dark mode toggle
+    initThemeToggle();
 });
 
 function initPortfolio() {
@@ -18,6 +21,41 @@ function initPortfolio() {
     const cards = document.querySelectorAll('.bento-card');
     cards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
+    });
+}
+
+function initThemeToggle() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (!toggleBtn) return;
+
+    const icon = toggleBtn.querySelector('i');
+    const label = toggleBtn.querySelector('span');
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        label.textContent = 'Light';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+
+        if (isDark) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            label.textContent = 'Light';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            label.textContent = 'Dark';
+            localStorage.setItem('theme', 'light');
+        }
     });
 }
 
@@ -65,7 +103,7 @@ function addEventListeners() {
     }
     
     // Social links
-     const socialLinks = document.querySelectorAll('.social-link');
+    const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             // Add click animation
@@ -74,8 +112,7 @@ function addEventListeners() {
                 this.style.transform = 'scale(1)';
             }, 150);
             
-            // You can add actual navigation here
-            console.log('Social link clicked:', this.href);
+            // Allow the link to work normally
         });
     });
     
@@ -405,4 +442,3 @@ const optimizedScrollHandler = debounce(function() {
 }, 16);
 
 window.addEventListener('scroll', optimizedScrollHandler);
-
