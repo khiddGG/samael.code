@@ -8,15 +8,18 @@
     <link rel="apple-touch-icon" href="images/profile.jpg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Circular favicon styling */
-        link[rel="icon"] {
-            border-radius: 50% !important;
-            clip-path: circle(50% at 50% 50%) !important;
-        }
-    </style>
 </head>
+
 <body>
+    <!-- Dark mode toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+        <span>Dark</span>
+    </button>
+
+    <!-- Snow Effect -->
+    <div class="snow"></div>
+
     <div class="container">
         <header class="header">
             <div class="header-background">
@@ -43,7 +46,7 @@
                     <p>ICT Technical Support Specialist and Frontend Developer, dedicated to delivering reliable IT solutions and building responsive, user-friendly web applications.</p>
                     <div class="social-links">
                         <a href="https://github.com/khiddGG" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.facebook.com/profile.php/" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/Kh1ddTV/" class="social-link"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/hello.samael_/" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span class="skill-name">C#,VB and Phyton</span>
+                            <span class="skill-name">C#, VB and Python</span>
                             <span class="skill-level">85%</span>
                         </div>
                         <div class="skill-bar">
@@ -150,7 +153,7 @@
                 <div class="card-content">
                     <div class="experience-item">
                         <h3>ICT Technical Support Specialist</h3>
-                        <p class="company">DENR CENRO BRooke's Point</p>
+                        <p class="company">DENR CENRO Brooke's Point</p>
                         <p class="period">July 2023 - June 2025</p>
                         <p class="description">Provides technical assistance, troubleshooting, and maintenance of computer systems, networks, and software to ensure smooth IT operations.</p>
                     </div>
@@ -158,7 +161,7 @@
                         <h3>System Programmer</h3>
                         <p class="company">Freelance</p>
                         <p class="period">2020 - 2025</p>
-                        <p class="description">Develops and implements computer-based systems for academic and organizational use, focusing on design, coding, testing, and deployment to meet specific requirements such as record management, automation, and data processing.</p>
+                        <p class="description">Develops and implements computer-based systems for academic and organizational use, focusing on design, coding, testing, and deployment.</p>
                     </div>
                 </div>
             </div>
@@ -174,7 +177,7 @@
                         <h3>Bachelor of Science in Information Technology</h3>
                         <p class="institution">Palawan State University</p>
                         <p class="period">2013 - 2019</p>
-                        <p class="description">A four-year degree program that focuses on the study, design, development, implementation, and management of computer-based information systems. It equips students with knowledge and skills in programming, networking, database management, web and software development, and IT support, preparing them for careers in technology and innovation.</p>
+                        <p class="description">A four-year degree program focusing on the study, design, development, implementation, and management of computer-based information systems.</p>
                     </div>
                 </div>
             </div>
@@ -202,26 +205,62 @@
                 </div>
             </div>
 
-                         <!-- Interests Card -->
-             <div class="bento-card interests-card" data-card="interests">
-                 <div class="card-header">
-                     <i class="fas fa-heart icon"></i>
-                     <h2>Interests</h2>
-                 </div>
-                 <div class="card-content">
-                     <div class="interests-grid">
-                         <span class="interest-tag">Photography</span>
-                         <span class="interest-tag">Singing</span>
-                         <span class="interest-tag">Cooking</span>
-                         <span class="interest-tag">Reading</span>
-                         <span class="interest-tag">Cuddle</span>
-                         <span class="interest-tag">Music</span>
-                     </div>
-                 </div>
-             </div>
-         </main>
-     </div>
+            <!-- Interests Card -->
+            <div class="bento-card interests-card" data-card="interests">
+                <div class="card-header">
+                    <i class="fas fa-heart icon"></i>
+                    <h2>Interests</h2>
+                </div>
+                <div class="card-content">
+                    <div class="interests-grid">
+                        <span class="interest-tag">Photography</span>
+                        <span class="interest-tag">Singing</span>
+                        <span class="interest-tag">Cooking</span>
+                        <span class="interest-tag">Reading</span>
+                        <span class="interest-tag">Cuddle</span>
+                        <span class="interest-tag">Music</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
+
+    <!-- Dark mode logic -->
+    <script>
+        (function () {
+            const body = document.body;
+            const toggleBtn = document.getElementById('theme-toggle');
+            const icon = toggleBtn.querySelector('i');
+            const label = toggleBtn.querySelector('span');
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                label.textContent = 'Light';
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+
+                if (isDark) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    label.textContent = 'Light';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    label.textContent = 'Dark';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
