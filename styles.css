@@ -11,12 +11,197 @@ body {
     min-height: 100vh;
     color: #374151;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Favicon styling */
 link[rel="icon"] {
     border-radius: 50%;
     overflow: hidden;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 0.8rem;
+    background: rgba(15, 23, 42, 0.8);
+    color: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    backdrop-filter: blur(8px);
+}
+
+.theme-toggle i {
+    font-size: 1rem;
+}
+
+.theme-toggle span {
+    font-weight: 500;
+}
+
+.theme-toggle:hover {
+    background: rgba(30, 64, 175, 0.9);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
+    color: #e5e7eb;
+}
+
+body.dark-mode .container {
+    color: #e5e7eb;
+}
+
+body.dark-mode .header-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.8),
+        rgba(15, 23, 42, 0.95)
+    );
+}
+
+body.dark-mode .header .title,
+body.dark-mode .header .subtitle {
+    color: #e5e7eb;
+}
+
+body.dark-mode .bento-card {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb;
+}
+
+body.dark-mode .bento-card .icon {
+    color: #60a5fa;
+}
+
+body.dark-mode .contact-btn {
+    background: #2563eb;
+    color: #e5e7eb;
+}
+
+body.dark-mode .contact-btn:hover {
+    background: #1d4ed8;
+}
+
+body.dark-mode .interest-tag {
+    background: rgba(37, 99, 235, 0.15);
+    color: #bfdbfe;
+}
+
+body.dark-mode a,
+body.dark-mode .social-link {
+    color: #93c5fd;
+}
+
+/* Snow container */
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Bigger, full-screen falling snow using box-shadow */
+.snow::before,
+.snow::after {
+    content: "";
+    position: absolute;
+    top: -20vh;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:
+        5vw 5vh #ffffff,
+        15vw 15vh #ffffff,
+        25vw 10vh #ffffff,
+        35vw 20vh #ffffff,
+        45vw 2vh  #ffffff,
+        55vw 18vh #ffffff,
+        65vw 8vh  #ffffff,
+        75vw 12vh #ffffff,
+        85vw 4vh  #ffffff,
+        95vw 16vh #ffffff,
+        10vw 30vh #ffffff,
+        20vw 40vh #ffffff,
+        30vw 35vh #ffffff,
+        40vw 45vh #ffffff,
+        50vw 38vh #ffffff,
+        60vw 50vh #ffffff,
+        70vw 42vh #ffffff,
+        80vw 55vh #ffffff,
+        90vw 48vh #ffffff,
+        5vw  60vh #ffffff,
+        15vw 70vh #ffffff,
+        25vw 65vh #ffffff,
+        35vw 75vh #ffffff,
+        45vw 68vh #ffffff,
+        55vw 80vh #ffffff,
+        65vw 72vh #ffffff,
+        75vw 85vh #ffffff,
+        85vw 78vh #ffffff,
+        95vw 90vh #ffffff;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+    animation: snow-fall 20s linear infinite;
+}
+
+.snow::after {
+    top: -40vh;
+    animation-duration: 28s;
+    animation-delay: -8s;
+    opacity: 0.7;
+    transform: translateX(0);
+    box-shadow:
+        8vw 3vh  #ffffff,
+        18vw 18vh #ffffff,
+        28vw 8vh  #ffffff,
+        38vw 22vh #ffffff,
+        48vw 6vh  #ffffff,
+        58vw 25vh #ffffff,
+        68vw 10vh #ffffff,
+        78vw 18vh #ffffff,
+        88vw 2vh  #ffffff,
+        98vw 20vh #ffffff,
+        12vw 32vh #ffffff,
+        22vw 45vh #ffffff,
+        32vw 38vh #ffffff,
+        42vw 48vh #ffffff,
+        52vw 36vh #ffffff,
+        62vw 52vh #ffffff,
+        72vw 44vh #ffffff,
+        82vw 58vh #ffffff,
+        92vw 46vh #ffffff,
+        8vw  62vh #ffffff,
+        18vw 72vh #ffffff,
+        28vw 67vh #ffffff,
+        38vw 77vh #ffffff,
+        48vw 70vh #ffffff,
+        58vw 82vh #ffffff,
+        68vw 74vh #ffffff,
+        78vw 88vh #ffffff,
+        88vw 80vh #ffffff,
+        98vw 92vh #ffffff;
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translate3d(0, -10vh, 0);
+    }
+    100% {
+        transform: translate3d(0, 110vh, 0);
+    }
 }
 
 .container {
