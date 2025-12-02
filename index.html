@@ -227,40 +227,7 @@
 
     <script src="script.js"></script>
 
-    <!-- Dark mode logic -->
-    <script>
-        (function () {
-            const body = document.body;
-            const toggleBtn = document.getElementById('theme-toggle');
-            const icon = toggleBtn.querySelector('i');
-            const label = toggleBtn.querySelector('span');
-
-            // Load saved theme
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                body.classList.add('dark-mode');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-                label.textContent = 'Light';
-            }
-
-            toggleBtn.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
-                const isDark = body.classList.contains('dark-mode');
-
-                if (isDark) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                    label.textContent = 'Light';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                    label.textContent = 'Dark';
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-        })();
-    </script>
+  
 </body>
 </html>
+
