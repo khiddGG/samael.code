@@ -28,6 +28,11 @@
 <body>
   <div class="noise"></div>
 
+  <!-- Floating gradient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
   <header class="topbar">
     <div class="container nav-wrap">
       <a href="#home" class="brand">
@@ -56,17 +61,30 @@
 
   <main id="home">
     <section class="hero section">
+      <!-- Mouse-tracking spotlight -->
+      <div class="hero-spotlight" id="heroSpotlight"></div>
+      <!-- Floating particles -->
+      <canvas class="hero-particles" id="heroParticles"></canvas>
+
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">IT Specialist • Frontend Developer • System Programmer</p>
+          <p class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            IT Specialist • Frontend Developer • System Programmer
+          </p>
           <h1>
-            Mohammar Arabia
-            <span>Samael</span>
+            <span class="hero-name-line">Mohammar Arabia</span>
+            <span class="hero-accent-name" data-text="Samael">Samael</span>
           </h1>
           <p class="hero-text">
             ICT Technical Support Specialist and Frontend Developer focused on reliable IT solutions,
             responsive web applications, and clean modern interfaces.
           </p>
+
+          <div class="availability-badge">
+            <span class="pulse-dot"></span>
+            Available for freelance work
+          </div>
 
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">
@@ -96,6 +114,7 @@
         </div>
 
         <div class="hero-card reveal">
+          <div class="hero-card-glow"></div>
           <div class="profile-panel">
             <div class="profile-photo-wrap">
               <img src="images/profile.jpg" alt="Mohammar Arabia Profile" class="profile-photo" />
@@ -468,7 +487,37 @@
       </div>
     </div>
   </footer>
+  <!-- CHATBOT -->
+<div class="chatbot">
+  <button id="chatToggle" class="chat-toggle">
+    <i class="fa-solid fa-comment-dots"></i>
+  </button>
+
+  <div id="chatWindow" class="chat-window">
+    <div class="chat-header">
+      <div class="chat-title">
+        <h4>Samael AI</h4>
+        <span>Ask me anything about my work</span>
+      </div>
+      <button id="chatClose" class="chat-close">&times;</button>
+    </div>
+
+    <div id="chatMessages" class="chat-messages">
+      <div class="message bot">
+        Hi 👋 Pwede mo akong tanungin tungkol sa presyo, timeline, or system 🙂
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Ask something..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script src="chatbot.js"></script>
 
   <script src="script.js"></script>
+
 </body>
 </html>
