@@ -16,9 +16,15 @@ document.querySelectorAll(".nav a").forEach((link) => {
 });
 
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  document.documentElement.setAttribute("data-theme", savedTheme);
-  syncThemeIcon(savedTheme);
+
+// DEFAULT = DARK
+if (savedTheme === "light") {
+  document.documentElement.setAttribute("data-theme", "light");
+  syncThemeIcon("light");
+} else {
+  // force dark
+  document.documentElement.removeAttribute("data-theme");
+  syncThemeIcon("");
 }
 
 themeToggle?.addEventListener("click", () => {
