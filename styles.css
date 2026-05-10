@@ -676,8 +676,15 @@ main,
   font-size: 1.15rem;
 }
 
-.card p,
-.project-card p,
+.card p {
+  color: var(--muted);
+}
+
+.project-card p {
+  flex-grow: 1;
+  color: var(--muted);
+}
+
 .timeline-item p {
   color: var(--muted);
 }
